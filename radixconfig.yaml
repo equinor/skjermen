@@ -1,0 +1,19 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: Skjermen
+spec:
+  environments:
+    - name: test
+      build:
+        from: master
+    - name: production
+      build:
+        from: production
+  components:
+    - name: main
+      src: "./webapp"
+      public: true
+      ports:
+        - name: http
+          port: 80
