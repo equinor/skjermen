@@ -1,0 +1,19 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: skjermen
+spec:
+  environments:
+  - name: production
+    build:
+      from: master
+  components:
+  - name: webapp
+    src: "./webapp"
+    ports:
+    - name: http
+      port: 80
+    publicPort: http
+  dnsAppAlias:
+    environment: production
+    component: webapp

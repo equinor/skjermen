@@ -1,0 +1,13 @@
+dist: trusty
+
+language: generic
+
+services:
+- docker
+
+jobs:
+  test:
+  - stage: build docker image
+    script:
+    - cd webapp
+    - docker build .

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="refresh" content="14400">
+  <title>Skjermen</title>
+  <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+  <base target="_blank" href=".">
+  <link rel="stylesheet" type="text/css" href="styles/skjermen.css">
+  <link rel="stylesheet" type="text/css" href="styles/news-ticker.css">
+  <link rel="stylesheet" type="text/css" href="styles/pro-tip.css">
+  <link rel="stylesheet" type="text/css" href="styles/entertainment.css">
+</head>
+
+<body dir="ltr">
+
+<div class="video-and-info">
+  <div class="entertainment-container">
+    <iframe src="/atb/New/minskjerm/FST.aspx?visMode=1&cTit=&c1=1&s1=16011410&sv1=20&cn1=Skal%20du%20ta%20buss%3F%20%28fra+Rotvoll-stoppet%29&template=3&cmhb=A8AD00&cmhc=000000&cshb=000000&cshc=FFFFFF&arb=000000&rows=3&period=&" frameborder="0">
+      Har du ikke skrudd påiframes? Da må du selv finne ut når bussen går!
+    </iframe>
+  </div>
+
+  <div class="pro-tip-container">
+    <h1 class="pro-tip-header">Shuffleboard-resultat</h1>
+    Interns vant i shuffleboard. Aiaiaiai.
+
+    <div class="pro-tip-footer">
+      <div class="pro-tip-footer-content">
+        <p>Noen må spille bedre neste gang!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker-container">
+    <div class="ticker-wrap">
+      <div class="ticker-move" id="ticker">
+        <div class="ticker-item"><img src="images/ruby.png" class="ticker-image"></div>
+        <div class="ticker-item"><span class="emphasis">Ruby</span> er et programmeringsspråk som er fokusert på utvikler-lykke. Lær deg Ruby på <a href="ruby-lang.org">ruby-lang.org</a></div>
+        <div class="ticker-item"><img src="images/ruby.png" class="ticker-image"></div>
+        <div class="ticker-item"><img src="images/skifree-running-yeti.gif" class="ticker-image"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Powered by <a href="https://www.radix.equinor.com/">radix</a>, <a href="https://www.nginx.com/">nginx</a> and
+    <a href="https://www.docker.com/">Docker</a>.</p>
+  <p><a class="github-link" href="https://github.com/equinor/skjermen"> <img src="images/GitHub-Mark-32px.png">Equinor/Skjermen</a>
+  </p>
+</div>
+
+<div class="llama-container">
+  <a href="https://wiki.equinor.com/wiki/index.php/Drilling_&_Well_Integration_Team" title="Team Awesome"
+     target="_blank"><img src="images/llama.jpg" alt="3D-printed Llama"></a>
+</div>
+
+<script src="https://unpkg.com/jquery@3.2.1"></script>
+<script src="https://unpkg.com/clippyjs@latest"></script>
+<script src="scripts/clippy.js"></script>
+<script>
+ function addTickerMessage(message) {
+     var element = document.createElement('div');
+     element.className = 'ticker-item';
+     element.innerHTML = message;
+     document.getElementById('ticker').appendChild(element);
+ }
+</script>
+
+</body>
+</html>

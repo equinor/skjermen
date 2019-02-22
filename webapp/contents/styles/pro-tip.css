@@ -1,0 +1,23 @@
+.pro-tip-container {
+  position: relative;
+  min-height: 250px;
+  grid-column: 2;
+}
+
+.pro-tip-header {
+  margin-top: 0;
+}
+
+.pro-tip-footer-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #6ab33a;
+  text-align: center;
+}
+
+span.code {
+  white-space: pre;
+  font-family: monospace;
+}

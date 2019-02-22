@@ -1,0 +1,53 @@
+/* https://code-boxx.com/html-css-news-ticker-horizontal-vertical/ */
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-container {
+  width: 100%;
+  overflow: hidden;
+  grid-column: 1 / span 2;
+}
+
+.ticker-wrap {
+  margin: 40px;
+  width: 100%;
+  padding-left: 100%;
+  background-color: #eee;
+  font-size: 150%;
+}
+
+.ticker-move {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 25s;
+}
+
+.ticker-move:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 2rem;
+}
+
+.ticker-image {
+  display: inline-block;
+  padding: 0 2rem;
+  height: 3em;
+}
+
+.emphasis {
+  font-size: 80px;
+}

@@ -1,0 +1,14 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.fika {
+  background-image: url("../images/fika.jpg");
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
