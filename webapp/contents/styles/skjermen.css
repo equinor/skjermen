@@ -1,0 +1,46 @@
+html {
+    font-family: 'News Cycle', sans-serif;
+}
+
+body {
+    background-color: #efefef;
+    width: 80%;
+    margin: auto;
+}
+
+.iframe-container {
+    text-align: center;
+}
+
+iframe {
+    display: block;
+    background: #000;
+    border: none;
+    height: calc(100vh - 310px);
+    width: 100%;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #555;
+    text-align: center;
+    color: white;
+}
+
+.footer a {
+    color: white;
+}
+
+.llama-container {
+    position: fixed;
+    height: 2em;
+    right: 10px;
+    bottom: 10px;
+}
+
+.llama-container img {
+    height: 100%;
+}
