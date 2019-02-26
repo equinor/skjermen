@@ -1,6 +1,6 @@
 html {
     font-family: 'News Cycle', sans-serif;
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 body {
@@ -17,7 +17,7 @@ iframe {
     display: block;
     background: #000;
     border: none;
-    height: calc(100vh - 310px);
+    height: calc(100vh - 400px);
     width: 100%;
 }
 
