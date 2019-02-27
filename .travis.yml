@@ -3,11 +3,11 @@ dist: trusty
 language: generic
 
 services:
-  - docker
+- docker
 
 jobs:
   test:
-    - stage: build docker image
-      script:
-      - cd webapp
-      - docker build .
+  - stage: build docker image
+    script:
+    - cd webapp
+    - docker build .
