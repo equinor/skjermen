@@ -9,6 +9,10 @@ body {
     margin: auto;
 }
 
+h1 {
+    font-size: x-large;
+}
+
 .iframe-container {
     text-align: center;
 }
@@ -17,7 +21,7 @@ iframe {
     display: block;
     background: #000;
     border: none;
-    height: calc(100vh - 400px);
+    height: calc(100vh - 330px);
     width: 100%;
 }
 
@@ -33,6 +37,12 @@ iframe {
 
 .footer a {
     color: white;
+}
+
+a.github-link{
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 .llama-container {
