@@ -8,34 +8,64 @@
   <base target="_blank" href=".">
   <link rel="stylesheet" type="text/css" href="styles/skjermen.css">
   <link rel="stylesheet" type="text/css" href="styles/news-ticker.css">
+  <link rel="stylesheet" type="text/css" href="styles/pro-tip.css">
+  <link rel="stylesheet" type="text/css" href="styles/entertainment.css">
 </head>
 
 <body dir="ltr">
-<h1>Et lite videoklipp:</h1>
-<div class="iframe-container">
-  <iframe width="1440" height="762" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLiBgBeZPm6j9kYp7kRcLMXGwhxpjljk-A&autoplay=1&controls=1&loop=1&modestbranding=1&"
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
 
-<div class="ticker-container">
-  <div class="ticker-wrap">
-    <div class="ticker-move">
-      <div class="ticker-item">Det kodes live!</div>
-      <div class="ticker-item">Det blir <b>gaming</b> på neste Fika! Hvem er klare for en runde <b>Bomberman</b>?</div>
-      <div class="ticker-item">Team Awesome klinker til med nytt Git-repository for infoskjerm. Alle kan bidra! Gå til <a class="github-link"
-                                                                                                                          href="https://github.com/equinor/skjermen">GitHub.com/Equinor/Skjermen</a>
+<div class="video-and-info">
+  <div class="entertainment-container">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/videoseries?list=PLiBgBeZPm6j9kYp7kRcLMXGwhxpjljk-A&autoplay=1&controls=1&loop=1&modestbranding=1&"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    >
+      Har du ikke skrudd på iframes? Da blir det ikke noe video!
+    </iframe>
+  </div>
+
+  <div class="pro-tip-container">
+    <h1 class="pro-tip-header">Python? Prøv dette:</h1>
+    <b>
+    <pre>
+pip install safety
+pip safety check --full-report
+    </pre>
+    </b>
+    <div class="pro-tip-footer">
+      <div class="pro-tip-footer-content">
+        <p>Legg det inn som en del av byggeprosessen!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker-container">
+    <div class="ticker-wrap">
+      <div class="ticker-move">
+        <div class="ticker-item">Det blir <span class="emphasis"><b>gaming</b></span> på neste Fika! Hva vil du spille?
+          <b>Bomberman</b>? <b>Exploding Kittens</b>? <b>Ludo</b>?
+        </div>
+        <div class="ticker-item"><span class="emphasis">Team Awesome</span> klinker til med nytt Git-repository for
+          infoskjerm. Alle kan bidra! Gå til <a class="github-link"
+                                                href="https://github.com/equinor/skjermen">GitHub.com/Equinor/Skjermen</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="footer">
-  <p>Powered by <a href="https://console.radix.equinor.com/">radix</a>, <a href="https://www.nginx.com/">nginx</a> and <a href="https://www.docker.com/">Docker</a>.</p>
-  <p><a class="github-link" href="https://github.com/equinor/skjermen">GitHub.com/Equinor/Skjermen</a></p>
+  <p>Powered by <a href="https://console.radix.equinor.com/">radix</a>, <a href="https://www.nginx.com/">nginx</a> and
+    <a href="https://www.docker.com/">Docker</a>.</p>
+  <p><a class="github-link" href="https://github.com/equinor/skjermen"> <img src="images/GitHub-Mark-32px.png">Equinor/Skjermen</a>
+  </p>
 </div>
 
 <div class="llama-container">
-  <a href="https://wiki.equinor.com/wiki/index.php/Drilling_&_Well_Integration_Team" title="Team Awesome" target="_blank"><img src="images/llama.jpg" alt="3D-printed Llama"></a>
+  <a href="https://wiki.equinor.com/wiki/index.php/Drilling_&_Well_Integration_Team" title="Team Awesome"
+     target="_blank"><img src="images/llama.jpg" alt="3D-printed Llama"></a>
 </div>
 </body>
 </html>
