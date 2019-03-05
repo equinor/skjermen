@@ -42,6 +42,12 @@
   padding: 0 2rem;
 }
 
+.ticker-image {
+  display: inline-block;
+  padding: 0 2rem;
+  height: 3em;
+}
+
 .emphasis {
   font-size: 80px;
 }
