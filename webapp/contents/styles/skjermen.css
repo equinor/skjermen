@@ -24,7 +24,7 @@ h1 {
 
 .video-and-info {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 2fr 1fr;
 }
 
 .footer {

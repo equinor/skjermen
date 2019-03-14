@@ -23,16 +23,17 @@
   </div>
 
   <div class="pro-tip-container">
-    <h1 class="pro-tip-header">Python? Prøv dette:</h1>
-    <b>
-    <pre>
-pip install safety
-pip safety check --full-report
-    </pre>
-    </b>
+    <h1 class="pro-tip-header">Nullstille branchen til slik den ser ut på GitHub?</h1>
+      Legg dette inn i <span class="code">.gitconfig</span>-fila i hjemmekatalogen din:
+<pre>
+[alias]
+  current-branch-name = !git rev-parse --abbrev-ref HEAD
+  fresh = !git reset --hard origin/$(git current-branch-name)
+</pre>
+... og skriv <b><span class="code">git fresh</pre></b>. Dette er et praktisk alias å bruke hvis noen har skrevet om historikken på feature branchen sin og du bare vil se/teste siste versjon lokalt.
     <div class="pro-tip-footer">
       <div class="pro-tip-footer-content">
-        <p>Legg det inn som en del av byggeprosessen!</p>
+        <p>Lag alias for ting du bruker ofte!</p>
       </div>
     </div>
   </div>

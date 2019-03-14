@@ -16,3 +16,8 @@
   background-color: #6ab33a;
   text-align: center;
 }
+
+span.code {
+  white-space: pre;
+  font-family: monospace;
+}
