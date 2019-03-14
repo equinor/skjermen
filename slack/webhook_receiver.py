@@ -3,6 +3,7 @@ import collections
 import json
 import os
 import threading
+from urllib.parse import urlparse, parse_qs
 
 from http import HTTPStatus
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -28,19 +29,20 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
             print("GET 404")
 
     def do_POST(self):
-        if self.path == '/api/slack/new' or self.path == '/api/slack/new/':
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            input_json = json.loads(post_data.decode('utf-8'))
+        print(self.path)
+        if self.path.startswith('/api/slack/new?'):
+            query_components = parse_qs(urlparse(self.path).query)
+            token = query_components['token'][0]
+            print(token)
 
-            if input_json['token'] != os.getenv('slackApiToken'):
+            if token != os.getenv('slackApiToken'):
                 self.send_response(HTTPStatus.FORBIDDEN)
                 print("Forbidden")
                 return
 
-            self.add_message_to_skjermen(input_json['text'])
+            self.add_message_to_skjermen(query_components['text'][0])
             self.send_response(HTTPStatus.OK)
-            self.wfile.write(json.dumps({"text": "Thank you!"}))
+            self.wfile.write(json.dumps({"text": "Thank you!"}).encode('utf-8'))
             print(slack_messages)
         else:
             self.send_response(HTTPStatus.NOT_FOUND)
