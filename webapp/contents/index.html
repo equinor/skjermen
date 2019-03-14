@@ -66,23 +66,23 @@ pip safety check --full-report
 <script src="https://unpkg.com/clippyjs@latest"></script>
 <script src="scripts/clippy.js"></script>
 <script>
- addTickerMessage(message) () {
+ function addTickerMessage(message) {
      var element = document.createElement('div');
      element.className = 'ticker-item';
      element.innerHTML = message;
      document.body.appendChild(element);
  }
 
- fetch('http://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list',
-       method: 'get'
- }).then(function(response) {
-     response['messages'].forEach(message => {
-         addTickerMessage(message);
-     });
- }).catch(function(err) {
-     addTickerMessage("There was an error in retrieving the latest messages");
-     console.log(err);
- });
+  fetch('http://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
+    method: 'get'
+  }).then(function(response) {
+    response['messages'].forEach(message => {
+      addTickerMessage(message);
+    });
+  }).catch(function(err) {
+    addTickerMessage("There was an error in retrieving the latest messages");
+    console.log(err);
+  });
 </script>
 
 </body>
