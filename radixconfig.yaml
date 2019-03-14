@@ -4,6 +4,9 @@ metadata:
   name: skjermen
 spec:
   environments:
+  - name: dev
+    build:
+      from: dev
   - name: test
     build:
       from: dev
