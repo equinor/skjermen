@@ -33,22 +33,27 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
 
     def do_POST(self):
         print(self.path)
-        if self.path.startswith('/api/slack/new?'):
-            query_components = parse_qs(urlparse(self.path).query)
-            token = query_components['token'][0]
-            print(token)
+        if self.path == '/api/slack/new':
+            content_len = int(self.headers.get('Content-Length'))
+            post_body = self.rfile.read(content_len).decode('utf-8')
 
-            if token != os.getenv('slackApiToken'):
+            has_token = False
+            for line in post_body.split('\n'):
+                arr = line.split("=")
+                key = arr[0]
+                value = "".join(arr[1:])
+                if key == 'token' and value == os.getenv('slackApiToken'):
+                    has_token = True
+                if key == 'text' and has_token:
+                    self.add_message_to_skjermen(value)
+
+            if has_token:
+                self.send_header('Content-type', 'application/json')
+                self.end_headers()
+                self.send_response(HTTPStatus.OK)
+                self.wfile.write(json.dumps({"text": "Thank you!"}).encode('utf-8'))
+            else:
                 self.send_response(HTTPStatus.FORBIDDEN)
-                print("Forbidden")
-                return
-
-            self.add_message_to_skjermen(query_components['text'][0])
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.send_response(HTTPStatus.OK)
-            self.wfile.write(json.dumps({"text": "Thank you!"}).encode('utf-8'))
-            print(slack_messages)
         else:
             self.send_response(HTTPStatus.NOT_FOUND)
             print("POST 404")
