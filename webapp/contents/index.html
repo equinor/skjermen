@@ -76,11 +76,10 @@ pip safety check --full-report
   fetch('https://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
     method: 'get',
     mode: 'cors'
-  }).then(function(messages) {
-    messages.forEach(message => {
-      addTickerMessage(message);
-    });
-  }).catch(function(err) {
+  })
+  .then(response => response.json())
+  .then(messages =>  messages.forEach(message => addTickerMessage(message)))
+  .catch(function(err) {
     addTickerMessage("There was an error in retrieving the latest messages");
     console.log(err);
   });
