@@ -6,6 +6,9 @@ spec:
   environments:
   - name: test
     build:
+      from: dev
+  - name: test
+    build:
       from: master
   - name: production
     build:
@@ -17,6 +20,14 @@ spec:
     ports:
     - name: http
       port: 80
+  - name: slack
+    src: "./slack"
+    public: true
+    ports:
+    - name: http
+      port: 9000
+    secrets:
+    - slackApiToken
   dnsAppAlias:
     environment: production
     component: main
