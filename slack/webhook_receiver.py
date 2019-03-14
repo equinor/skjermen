@@ -8,7 +8,7 @@ import threading
 from http import HTTPStatus
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-slack_messages = collections.deque(["o hai"], 10)
+slack_messages = collections.deque([], 50)
 
 
 class SlackHttpResponder(BaseHTTPRequestHandler):
