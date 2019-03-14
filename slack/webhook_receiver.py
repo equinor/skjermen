@@ -22,6 +22,9 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
         global slack_messages
         if self.path == '/api/slack/list':
             self.send_response(HTTPStatus.OK)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
             self.wfile.write(json.dumps([message for message in slack_messages]).encode('utf-8'))
             print(slack_messages)
         else:

@@ -74,7 +74,8 @@ pip safety check --full-report
  }
 
   fetch('https://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
-    method: 'get'
+    method: 'get',
+    mode: 'cors'
   }).then(function(response) {
     response['messages'].forEach(message => {
       addTickerMessage(message);
