@@ -3,7 +3,6 @@ import collections
 import json
 import os
 import threading
-from urllib.parse import urlparse, parse_qs
 
 from http import HTTPStatus
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -42,7 +41,7 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
                 arr = line.split("=")
                 key = arr[0]
                 value = "".join(arr[1:])
-                if key == 'token' and value == os.getenv('slackApiToken'):
+                if key == 'token' and value == os.environ['slackApiToken']:
                     has_token = True
                 if key == 'text' and has_token:
                     self.add_message_to_skjermen(value)
@@ -59,7 +58,7 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
             print("POST 404")
 
 
-print("Hello?")
+print(os.environ)
 server_address = ('', 9000)
 server = HTTPServer(server_address, SlackHttpResponder)
 
