@@ -73,7 +73,7 @@ pip safety check --full-report
      document.body.appendChild(element);
  }
 
-  fetch('http://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
+  fetch('https://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
     method: 'get'
   }).then(function(response) {
     response['messages'].forEach(message => {
