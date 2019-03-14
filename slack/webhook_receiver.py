@@ -28,7 +28,7 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
             print("GET 404")
 
     def do_POST(self):
-        if self.path == '/api/slack/new':
+        if self.path == '/api/slack/new' or self.path == '/api/slack/new/':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             input_json = json.loads(post_data.decode('utf-8'))
