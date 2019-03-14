@@ -9,9 +9,6 @@ spec:
       from: dev
   - name: test
     build:
-      from: dev
-  - name: test
-    build:
       from: master
   - name: production
     build:
