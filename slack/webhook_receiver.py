@@ -1,4 +1,5 @@
 import atexit
+import cgi
 import collections
 import json
 import os
@@ -33,23 +34,12 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
     def do_POST(self):
         print(self.path)
         if self.path == '/api/slack/new':
-            content_len = int(self.headers.get('Content-Length'))
-            post_body = self.rfile.read(content_len).decode('utf-8')
-
-            has_token = False
-            for line in post_body.split('\n'):
-                arr = line.split("=")
-                key = arr[0]
-                value = "".join(arr[1:])
-                if key == 'token' and value == os.environ['slackApiToken']:
-                    has_token = True
-                if key == 'text' and has_token:
-                    self.add_message_to_skjermen(value)
-
-            if has_token:
+            form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type']})
+            if form['token'].value == os.environ['slackApiToken']:
+                self.add_message_to_skjermen(form['text'].value)
+                self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
-                self.send_response(HTTPStatus.OK)
                 self.wfile.write(json.dumps({"text": "Thank you!"}).encode('utf-8'))
             else:
                 self.send_response(HTTPStatus.FORBIDDEN)
