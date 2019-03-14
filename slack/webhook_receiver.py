@@ -40,7 +40,7 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
 
             self.add_message_to_skjermen(input_json['text'])
             self.send_response(HTTPStatus.OK)
-            self.wfile.write(json.dumps([message for message in slack_messages]).encode('utf-8'))
+            self.wfile.write(json.dumps({"text": "Thank you!"}))
             print(slack_messages)
         else:
             self.send_response(HTTPStatus.NOT_FOUND)
