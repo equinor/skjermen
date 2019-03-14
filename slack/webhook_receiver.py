@@ -35,7 +35,7 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
         print(self.path)
         if self.path == '/api/slack/new':
             form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type']})
-            if form['token'].value == os.environ['slackApiToken']:
+            if form['token'].value == os.environ['slackApiToken'] and form['user_name'] != 'skjermen-outgoing-webhook' and form['user_name'] != 'slackbot':
                 self.add_message_to_skjermen(form['text'].value)
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
