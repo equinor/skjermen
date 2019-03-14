@@ -48,7 +48,6 @@ class SlackHttpResponder(BaseHTTPRequestHandler):
             print("POST 404")
 
 
-print(os.environ)
 server_address = ('', 9000)
 server = HTTPServer(server_address, SlackHttpResponder)
 
