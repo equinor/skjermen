@@ -39,7 +39,7 @@ pip safety check --full-report
 
   <div class="ticker-container">
     <div class="ticker-wrap">
-      <div class="ticker-move">
+      <div class="ticker-move" id="ticker">
         <div class="ticker-item"><img src="images/curling-stone-icon.png" class="ticker-image"></div>
         <div class="ticker-item">Dato for <span class="emphasis">curling</span> er bestemt! Det blir <span class="emphasis">27. mars kl. 16:00 - 18:00</span> kl. <span class="emphasis">16:00 - 18:00</span> i <span class="emphasis">Leangen Curlinghall</span>. Det er 10/10 påmeldte, kontakt Christian Neverdal for å komme på "venteliste". Dette blir gøy!</div>
         <div class="ticker-item"><img src="images/curling-stone-icon.png" class="ticker-image"></div>
@@ -70,7 +70,7 @@ pip safety check --full-report
      var element = document.createElement('div');
      element.className = 'ticker-item';
      element.innerHTML = message;
-     document.body.appendChild(element);
+     document.getElementById('ticker').appendChild(element);
  }
 
   fetch('https://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
