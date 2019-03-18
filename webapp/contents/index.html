@@ -74,7 +74,10 @@
      document.getElementById('ticker').appendChild(element);
  }
 
-  fetch('https://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list', {
+  const locationUrl = window.location;
+  const url = locationUrl.protocol + "//" + locationUrl.host + '/api/slack/list';
+  const messagesUrl = url.includes('radix') ? url.replace('main-', 'slack-') : 'https://slack-skjermen-dev.beta-9.radix.equinor.com/api/slack/list';
+  fetch(messagesUrl, {
     method: 'get',
     mode: 'cors'
   })
