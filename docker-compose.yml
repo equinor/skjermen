@@ -1,0 +1,8 @@
+version: '3.5'
+services:
+  main:
+    container_name: main
+    build:
+      context: ./webapp
+    ports:
+     - 8000:80
