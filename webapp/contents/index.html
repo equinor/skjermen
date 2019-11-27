@@ -1,72 +1,195 @@
 <!DOCTYPE html>
 <html lang="no">
-<head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="refresh" content="14400">
-  <title>Skjermen</title>
-  <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
-  <base target="_blank" href=".">
-  <link rel="stylesheet" type="text/css" href="styles/skjermen.css">
-  <link rel="stylesheet" type="text/css" href="styles/news-ticker.css">
-  <link rel="stylesheet" type="text/css" href="styles/pro-tip.css">
-  <link rel="stylesheet" type="text/css" href="styles/entertainment.css">
-</head>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="refresh" content="14400">
+    <title>Skjermen</title>
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+    <base target="_blank" href=".">
+    <link rel="stylesheet" type="text/css" href="styles/skjermen.css">
+    <link rel="stylesheet" type="text/css" href="styles/news-ticker.css">
+    <link rel="stylesheet" type="text/css" href="styles/pro-tip.css">
+    <link rel="stylesheet" type="text/css" href="styles/entertainment.css">
+    <style>
 
-<body dir="ltr">
+      #clockdiv{
+          font-family: sans-serif;
+          color: #fff;
+          display: inline-block;
+          font-weight: 100;
+          text-align: center;
+          font-size: 30px;
+          position: absolute;
+          top: 0;
+          right: 0;
+      }
 
-<div class="video-and-info">
-  <div class="entertainment-container">
-    <iframe src="/atb/New/minskjerm/FST.aspx?visMode=1&cTit=&c1=1&s1=16011410&sv1=20&cn1=Skal%20du%20ta%20buss%3F%20%28fra+Rotvoll-stoppet%29&template=3&cmhb=A8AD00&cmhc=000000&cshb=000000&cshc=FFFFFF&arb=000000&rows=3&period=&" frameborder="0">
-      Har du ikke skrudd påiframes? Da må du selv finne ut når bussen går!
-    </iframe>
-  </div>
+      #clockdiv > div{
+          padding: 10px;
+          border-radius: 3px;
+          background: #00BF96;
+          display: inline-block;
+      }
 
-  <div class="pro-tip-container">
-    <h1 class="pro-tip-header">Shuffleboard-resultat</h1>
-    Interns vant i shuffleboard. Aiaiaiai.
+      #clockdiv div > span{
+          padding: 15px;
+          border-radius: 3px;
+          background: #00816A;
+          display: inline-block;
+      }
 
-    <div class="pro-tip-footer">
-      <div class="pro-tip-footer-content">
-        <p>Noen må spille bedre neste gang!</p>
+      .smalltext{
+          padding-top: 5px;
+          font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body dir="ltr">
+
+    <div class="video-and-info">
+      <div class="entertainment-container">
+        <iframe src="/atb/New/minskjerm/FST.aspx?visMode=1&cTit=&c1=1&s1=16011410&sv1=20&cn1=Skal%20du%20ta%20buss%3F%20%28fra+Rotvoll-stoppet%29&template=3&cmhb=A8AD00&cmhc=000000&cshb=000000&cshc=FFFFFF&arb=000000&rows=3&period=&" frameborder="0">
+          Har du ikke skrudd påiframes? Da må du selv finne ut når bussen går!
+        </iframe>
+      </div>
+
+      <div id="clockdiv">
+        <div>
+          <font color="black">Neste fika</font>
+        </div>
+        <div>
+          <span class="days"></span>
+          <div class="smalltext">Dager</div>
+        </div>
+        <div>
+          <span class="hours"></span>
+          <div class="smalltext">Timer</div>
+        </div>
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Minutter</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Seconds</div>
+        </div>
+      </div>
+
+      <div class="ticker-container">
+        <div class="ticker-wrap">
+          <div class="ticker-move" id="ticker">
+            <div class="ticker-item"><img src="images/ruby.png" class="ticker-image"></div>
+            <div class="ticker-item"><span class="emphasis">Ruby</span> er et programmeringsspråk som er fokusert på utvikler-lykke. Lær deg Ruby på <a href="ruby-lang.org">ruby-lang.org</a></div>
+            <div class="ticker-item"><img src="images/ruby.png" class="ticker-image"></div>
+            <div class="ticker-item"><img src="images/skifree-running-yeti.gif" class="ticker-image"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="ticker-container">
-    <div class="ticker-wrap">
-      <div class="ticker-move" id="ticker">
-        <div class="ticker-item"><img src="images/ruby.png" class="ticker-image"></div>
-        <div class="ticker-item"><span class="emphasis">Ruby</span> er et programmeringsspråk som er fokusert på utvikler-lykke. Lær deg Ruby på <a href="ruby-lang.org">ruby-lang.org</a></div>
-        <div class="ticker-item"><img src="images/ruby.png" class="ticker-image"></div>
-        <div class="ticker-item"><img src="images/skifree-running-yeti.gif" class="ticker-image"></div>
-      </div>
+    <div class="footer">
+      <p>Powered by <a href="https://www.radix.equinor.com/">radix</a>, <a href="https://www.nginx.com/">nginx</a> and
+        <a href="https://www.docker.com/">Docker</a>.</p>
+      <p><a class="github-link" href="https://github.com/equinor/skjermen"> <img src="images/GitHub-Mark-32px.png">Equinor/Skjermen</a>
+      </p>
     </div>
-  </div>
-</div>
 
-<div class="footer">
-  <p>Powered by <a href="https://www.radix.equinor.com/">radix</a>, <a href="https://www.nginx.com/">nginx</a> and
-    <a href="https://www.docker.com/">Docker</a>.</p>
-  <p><a class="github-link" href="https://github.com/equinor/skjermen"> <img src="images/GitHub-Mark-32px.png">Equinor/Skjermen</a>
-  </p>
-</div>
+    <div class="llama-container">
+      <a href="https://wiki.equinor.com/wiki/index.php/Drilling_&_Well_Integration_Team" title="Team Awesome"
+        target="_blank"><img src="images/llama.jpg" alt="3D-printed Llama"></a>
+    </div>
 
-<div class="llama-container">
-  <a href="https://wiki.equinor.com/wiki/index.php/Drilling_&_Well_Integration_Team" title="Team Awesome"
-     target="_blank"><img src="images/llama.jpg" alt="3D-printed Llama"></a>
-</div>
+    <script src="https://unpkg.com/jquery@3.2.1"></script>
+    <script src="https://unpkg.com/clippyjs@latest"></script>
+    <script src="scripts/clippy.js"></script>
+    <script>
+      function addTickerMessage(message) {
+        var element = document.createElement('div');
+        element.className = 'ticker-item';
+        element.innerHTML = message;
+        document.getElementById('ticker').appendChild(element);
+      }
 
-<script src="https://unpkg.com/jquery@3.2.1"></script>
-<script src="https://unpkg.com/clippyjs@latest"></script>
-<script src="scripts/clippy.js"></script>
-<script>
- function addTickerMessage(message) {
-     var element = document.createElement('div');
-     element.className = 'ticker-item';
-     element.innerHTML = message;
-     document.getElementById('ticker').appendChild(element);
- }
-</script>
+      function getNextFika() {
+        var now = new Date();
+        var next = new Date();
+        next.setDate(now.getDate() + (3 - 1 - now.getDay() + 7) % 7 + 1);
+        next.setHours(11, 0, 0, 0);
+        return next;
+      }
 
-</body>
+      function getTimeRemaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+          'total': t,
+          'days': days,
+          'hours': hours,
+          'minutes': minutes,
+          'seconds': seconds
+        };
+      }
+
+      function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector('.days');
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
+
+        function updateClock() {
+          var t = getTimeRemaining(endtime);
+
+          daysSpan.innerHTML = t.days;
+          hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+          minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+          secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+          }
+
+          let goalSize = '250';
+          let fontSize = ((604800/(t.total+1))*goalSize) + 'px';
+
+          txt = document.getElementById('clockdiv');
+          style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+          currentSize = parseFloat(style);
+          txt.style.fontSize = fontSize;
+
+          for (let i=0; i<txt.length; i++) {
+            style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+            currentSize = parseFloat(style);
+            txt.style.fontSize = fontSize;
+          }
+        }
+
+        updateClock();
+        var timeinterval = setInterval(updateClock, 1000);
+      }
+
+      function getNextFika() {
+        var now = new Date();
+        var nextFika = new Date();
+        nextFika.setDate(now.getDate() + (4 - 1 - now.getDay() + 7) % 7);
+        nextFika.setHours(14, 0, 0, 0);
+        return nextFika;
+      }
+
+      function convertToEST(date){
+        estOffset = 0.0
+        utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+        return new Date(utc + (3600000 * estOffset));
+      }
+
+      var deadline = getNextFika();
+      initializeClock('clockdiv', convertToEST(deadline));
+
+    </script>
+
+  </body>
 </html>
