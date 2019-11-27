@@ -72,7 +72,7 @@
         </div>
         <div>
           <span class="seconds"></span>
-          <div class="smalltext">Seconds</div>
+          <div class="smalltext">Sekunder</div>
         </div>
       </div>
 
@@ -162,9 +162,9 @@
           txt.style.fontSize = fontSize;
 
           for (let i=0; i<txt.length; i++) {
-            style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+            style = window.getComputedStyle(children[i], null).getPropertyValue('font-size');
             currentSize = parseFloat(style);
-            txt.style.fontSize = fontSize;
+            children[i].style.fontSize = fontSize;
           }
         }
 
