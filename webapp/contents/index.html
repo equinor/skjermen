@@ -154,8 +154,12 @@
             clearInterval(timeinterval);
           }
 
-          let goalSize = '250';
-          let fontSize = ((604800/(t.total+1))*goalSize) + 'px';
+          let goalSize = 200;
+          let milliseconds = 604800000;
+          let timeRemaining = t.total;
+          let fontSize = Math.max(12, ((milliseconds-timeRemaining)/milliseconds)*goalSize) + 'px';
+
+          console.log(fontSize);
 
           txt = document.getElementById('clockdiv');
           style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
@@ -174,9 +178,13 @@
       }
 
       function getNextFika() {
-        var now = new Date();
+        var date = new Date();
         var nextFika = new Date();
-        nextFika.setDate(now.getDate() + (4 - 1 - now.getDay() + 7) % 7);
+        const dayOfWeek = 3;
+        nextFika.setDate(date.getDate() + (dayOfWeek + 7 - date.getDay()) % 7);
+        if (nextFika.getHours() >= 14) {
+          nextFika.setDate(nextFika.getDate() + 7);
+        }
         nextFika.setHours(14, 0, 0, 0);
         return nextFika;
       }
