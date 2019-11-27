@@ -182,13 +182,15 @@
       }
 
       function convertToEST(date){
-        estOffset = 0.0
+        estOffset = 1.0
         utc = date.getTime() + (date.getTimezoneOffset() * 60000);
         return new Date(utc + (3600000 * estOffset));
       }
 
       var deadline = getNextFika();
       initializeClock('clockdiv', convertToEST(deadline));
+
+      document.body.style.cursor = "";
 
     </script>
 
