@@ -104,6 +104,7 @@
     <script src="https://unpkg.com/jquery@3.2.1"></script>
     <script src="https://unpkg.com/clippyjs@latest"></script>
     <script src="scripts/clippy.js"></script>
+    <script src="scripts/solitaireVictory.js"></script>
     <script>
       function addTickerMessage(message) {
         var element = document.createElement('div');
@@ -135,6 +136,8 @@
         };
       }
 
+      var solitaire = false;
+
       function initializeClock(id, endtime) {
         var clock = document.getElementById(id);
         var daysSpan = clock.querySelector('.days');
@@ -157,7 +160,20 @@
           let goalSize = 200;
           let milliseconds = 604800000;
           let timeRemaining = t.total;
+          timeRemaining=0;
           let fontSize = Math.max(12, ((milliseconds-timeRemaining)/milliseconds)*goalSize) + 'px';
+          if (timeRemaining <= 100 && !solitaire) {
+            $('#clockdiv').solitaireVictory({
+              dt: 40,
+              fallToLeft: true
+            });
+
+            $('iframe').solitaireVictory({
+              dt: 40
+            });
+
+            solitaire = true;
+          }
 
           console.log(fontSize);
 
@@ -174,7 +190,7 @@
         }
 
         updateClock();
-        var timeinterval = setInterval(updateClock, 1000);
+        var timeinterval = setInterval(updateClock, 60000);
       }
 
       function getNextFika() {
