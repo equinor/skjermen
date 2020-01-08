@@ -160,7 +160,7 @@
           let goalSize = 200;
           let milliseconds = 604800000;
           let timeRemaining = t.total;
-          timeRemaining=0;
+
           let fontSize = Math.max(12, ((milliseconds-timeRemaining)/milliseconds)*goalSize) + 'px';
           if (timeRemaining <= 100 && !solitaire) {
             $('#clockdiv').solitaireVictory({
@@ -173,9 +173,11 @@
             });
 
             solitaire = true;
-          }
 
-          console.log(fontSize);
+            setTimeout(function () {
+              location.reload();
+            }, 30 * 60 * 1000);
+          }
 
           txt = document.getElementById('clockdiv');
           style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
