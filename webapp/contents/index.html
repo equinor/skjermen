@@ -180,9 +180,10 @@ canvas {
           let goalSize = 200;
           let milliseconds = 604800000;
           let timeRemaining = t.total;
+          console.log(timeRemaining);
 
           let fontSize = Math.max(12, ((milliseconds-timeRemaining)/milliseconds)*goalSize) + 'px';
-          if (timeRemaining <= 100 && !solitaire) {
+          if ((timeRemaining <= 100 || timeRemaining >= 518430000) && !solitaire) {
             solitaire = true;
             runSolitaire();
 
