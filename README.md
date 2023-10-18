@@ -1,3 +1,5 @@
+This repo is archived as it is no longer maintained or in use.
+
 # Skjermen
 Welcome to the Git Repository for The Screen!
 
